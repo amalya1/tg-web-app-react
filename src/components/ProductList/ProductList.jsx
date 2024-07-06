@@ -31,7 +31,9 @@ const ProductList = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-        fetch('http://85.119.146.179:8000/web-data', {
+        console.log('Отправляемые данные:', data);
+
+        fetch('https://api.render.com/deploy/srv-cq44kc08fa8c73fkft50?key=JXD6blfg2dU', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -50,7 +52,7 @@ const ProductList = () => {
     const onAdd = (product) => {
         const alreadyAdded = addedItems.find(item => item.id === product.id);
         let newItems = [];
-
+        console.log(true)
         if(alreadyAdded) {
             newItems = addedItems.filter(item => item.id !== product.id);
         } else {
